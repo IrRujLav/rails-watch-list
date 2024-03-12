@@ -1,0 +1,23 @@
+
+
+
+
+
+<div class="container bg-colour ">
+<div class="movies-container p-3">
+  <% @list.movies.each do |movie| %>
+<div class="movie-card bg-dark d-flex flex-column" style="width: 300px" >
+  <img class="card-img-top shadow-lg" src="<%= movie.poster_url%>" alt="Movie poster" style="height: 500px ">
+  <div class="card-img text-white shadow-lg">
+    <h4 class="card-title"> <%= movie.title %></h4>
+    <p class="card-text"><%= movie.overview %></p>
+  </div>
+</div>
+    <%end %>
+
+</div>
+<%= link_to "Add a new movie", new_list_bookmark_path(list) %>
+<div>
+<%= link_to "Back", lists_path, class: "btn btn-light" %>
+
+</div>

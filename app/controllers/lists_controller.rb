@@ -1,6 +1,7 @@
 class ListsController < ApplicationController
   def index
     @lists = List.all
+    @list = List.new
   end
 
   def show
@@ -9,17 +10,17 @@ class ListsController < ApplicationController
 
   def new
     @list = List.new
-
   end
 
   def create
-    @list = List.new(list_paramas)
+    @list = List.new(list_params)
     @list.save
+    redirect_to lists_path(@list)
   end
 end
 
 private
 
-def list_paramas
+def list_params
   params.require(:list).permit(:name)
 end
